@@ -1,5 +1,4 @@
 import React from 'react';
-import { navLinks } from '../../data';
 import { smoothScrollTo } from '../../utils/helpers';
 import './Footer.css';
 
