@@ -1,0 +1,212 @@
+.hiw {
+  background: var(--color-dark);
+  position: relative;
+}
+
+.hiw::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(124, 58, 237, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ─── Grid ─── */
+.hiw__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  position: relative;
+}
+
+/* ─── Step Card ─── */
+.hiw__step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-md);
+  padding: var(--space-xl) var(--space-lg);
+  background: var(--gradient-glass);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--border-radius-xl);
+  backdrop-filter: blur(10px);
+  transition: all var(--transition-base);
+  overflow: hidden;
+}
+
+.hiw__step:hover {
+  border-color: var(--step-color-border);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px var(--step-color-shadow);
+}
+
+/* ─── Step Number ─── */
+.hiw__step-number {
+  font-size: var(--font-size-sm);
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--step-color);
+  opacity: 0.6;
+}
+
+/* ─── Step Icon ─── */
+.hiw__step-icon {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  background: var(--step-color-subtle);
+  border: 2px solid var(--step-color-border);
+  box-shadow: 0 8px 24px var(--step-color-shadow);
+  transition: all var(--transition-bounce);
+  flex-shrink: 0;
+}
+
+.hiw__step:hover .hiw__step-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.hiw__step-icon-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px dashed var(--step-color);
+  opacity: 0.3;
+  animation: spin-slow 12s linear infinite;
+}
+
+/* ─── Step Text ─── */
+.hiw__step-title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1.3;
+}
+
+.hiw__step-desc {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ─── Glow Background ─── */
+.hiw__step-glow {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--step-color);
+  filter: blur(55px);
+  opacity: 0;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity var(--transition-base);
+}
+
+.hiw__step:hover .hiw__step-glow {
+  opacity: 0.12;
+}
+
+/* ─── Connector between steps ─── */
+.hiw__connector {
+  position: absolute;
+  top: calc(88px / 2 + var(--space-md) + var(--space-xl) + 12px);
+  right: calc(-1 * var(--space-lg) / 2 - 10px);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hiw__connector-line {
+  width: var(--space-xl);
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.hiw__connector-arrow {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 1.2rem;
+  line-height: 1;
+  margin-top: -2px;
+}
+
+/* ─── Promo Banner ─── */
+.hiw__banner {
+  margin-top: var(--space-3xl);
+  padding: var(--space-xl) var(--space-2xl);
+  background: var(--purple-subtle);
+  border: var(--border-primary);
+  border-radius: var(--border-radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.hiw__banner-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.hiw__banner-icon {
+  font-size: 3rem;
+  animation: float 3s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.hiw__banner-title {
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  color: var(--color-white);
+  margin-bottom: var(--space-xs);
+}
+
+.hiw__banner-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.hiw__banner-subtitle strong {
+  color: var(--purple-light);
+  background: var(--purple-subtle);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1024px) {
+  .hiw__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hiw__connector { display: none; }
+}
+
+@media (max-width: 640px) {
+  .hiw__grid {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  .hiw__banner {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-xl);
+  }
+  .hiw__banner-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}

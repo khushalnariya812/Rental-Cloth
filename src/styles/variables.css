@@ -1,0 +1,118 @@
+/* ===================================================
+   CSS Custom Properties — 3-Color Professional Palette
+   Color 1 : Purple  #7c3aed  (brand primary)
+   Color 2 : Royal Blue  #2563eb  (secondary)
+   Color 3 : Teal  #0d9488  (tertiary)
+   =================================================== */
+:root {
+
+  /* ── COLOR 1 : PURPLE ── */
+  --purple:        #7c3aed;
+  --purple-dark:   #5b21b6;
+  --purple-deeper: #4c1d95;
+  --purple-light:  #a78bfa;
+  --purple-subtle: rgba(124, 58, 237, 0.12);
+  --purple-border: rgba(124, 58, 237, 0.35);
+
+  /* ── COLOR 2 : ROYAL BLUE ── */
+  --blue:          #2563eb;
+  --blue-dark:     #1d4ed8;
+  --blue-deeper:   #1e3a8a;
+  --blue-light:    #60a5fa;
+  --blue-subtle:   rgba(37, 99, 235, 0.12);
+  --blue-border:   rgba(37, 99, 235, 0.35);
+
+  /* ── COLOR 3 : TEAL ── */
+  --teal:          #0d9488;
+  --teal-dark:     #0f766e;
+  --teal-deeper:   #134e4a;
+  --teal-light:    #2dd4bf;
+  --teal-subtle:   rgba(13, 148, 136, 0.12);
+  --teal-border:   rgba(13, 148, 136, 0.35);
+
+  /* ── Mapped aliases (used by global utilities) ── */
+  --color-primary:       var(--purple);
+  --color-primary-light: var(--purple-light);
+  --color-primary-dark:  var(--purple-dark);
+
+  /* ── Backgrounds ── */
+  --color-dark:    #09080f;
+  --color-dark-2:  #0f0d1a;
+  --color-dark-3:  #16132a;
+  --color-surface: #1a172e;
+  --color-surface-2: #201d3a;
+  --color-white:   #ffffff;
+
+  /* ── Text ── */
+  --text-primary:   #f4f2ff;
+  --text-secondary: #b0a8d8;
+  --text-muted:     #635e84;
+
+  /* ── Gradients (single-color, no mixing) ── */
+  --gradient-hero:    linear-gradient(145deg, #09080f 0%, #150f2e 60%, #0a081a 100%);
+  --gradient-purple:  linear-gradient(135deg, var(--purple-dark) 0%, var(--purple) 100%);
+  --gradient-blue:    linear-gradient(135deg, var(--blue-dark)   0%, var(--blue)   100%);
+  --gradient-teal:    linear-gradient(135deg, var(--teal-dark)   0%, var(--teal)   100%);
+  --gradient-glass:   linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+
+  /* Legacy accent (warm gold — used only for promo badges) */
+  --gradient-accent:  linear-gradient(135deg, #92693a 0%, #c4a35a 50%, #d4b97a 100%);
+  --shadow-accent:    0 8px 28px rgba(196, 163, 90, 0.22);
+
+
+  /* Legacy alias — used by .btn-primary & .section-title */
+  --gradient-primary: var(--gradient-purple);
+
+  /* ── Shadows ── */
+  --shadow-sm:      0 2px 10px rgba(0,0,0,0.25);
+  --shadow-md:      0 8px 32px rgba(0,0,0,0.35);
+  --shadow-lg:      0 20px 60px rgba(0,0,0,0.45);
+  --shadow-purple:  0 8px 28px rgba(124, 58, 237, 0.30);
+  --shadow-blue:    0 8px 28px rgba(37,  99, 235, 0.30);
+  --shadow-teal:    0 8px 28px rgba(13, 148, 136, 0.30);
+
+  /* ── Borders ── */
+  --border-glass:   1px solid rgba(255,255,255,0.07);
+  --border-primary: 1px solid var(--purple-border);
+
+  /* ── Border Radius ── */
+  --border-radius-sm:   8px;
+  --border-radius-md:   14px;
+  --border-radius-lg:   20px;
+  --border-radius-xl:   28px;
+  --border-radius-full: 9999px;
+
+  /* ── Spacing ── */
+  --space-xs:  0.25rem;
+  --space-sm:  0.5rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  /* ── Typography ── */
+  --font-primary:   'Outfit', sans-serif;
+  --font-secondary: 'Playfair Display', serif;
+  --font-size-xs:   0.75rem;
+  --font-size-sm:   0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg:   1.125rem;
+  --font-size-xl:   1.25rem;
+  --font-size-2xl:  1.5rem;
+  --font-size-3xl:  2rem;
+  --font-size-4xl:  2.5rem;
+  --font-size-5xl:  3.5rem;
+  --font-size-6xl:  5rem;
+
+  /* ── Transitions ── */
+  --transition-fast:   0.18s ease;
+  --transition-base:   0.28s ease;
+  --transition-slow:   0.45s ease;
+  --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Layout ── */
+  --container-max: 1280px;
+  --navbar-height: 80px;
+}

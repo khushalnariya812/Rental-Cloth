@@ -1,0 +1,221 @@
+.categories {
+  background: var(--color-dark-2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Grid — 2×2 for 4 categories */
+.categories__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+}
+
+/* ─── Category Card ─── */
+.category-card {
+  position: relative;
+  border-radius: var(--border-radius-xl);
+  background: var(--color-surface);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.category-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--cat-color-border);
+  box-shadow: 0 20px 50px var(--cat-color-shadow);
+}
+
+/* ─── Tag (each card uses its own color) ─── */
+.category-card__tag {
+  position: absolute;
+  top: var(--space-md);
+  left: var(--space-md);
+  z-index: 3;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: var(--border-radius-full);
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(12px);
+  background: var(--cat-color-subtle);
+  color:       var(--cat-color-light);
+  border: 1px solid var(--cat-color-border);
+}
+
+/* ─── Image ─── */
+.category-card__image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+}
+
+.category-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+  display: block;
+}
+
+.category-card:hover .category-card__image {
+  transform: scale(1.07);
+}
+
+.category-card__image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(9, 8, 15, 0.92) 0%, rgba(9, 8, 15, 0.3) 55%, transparent 100%);
+  z-index: 1;
+}
+
+/* ─── Content ─── */
+.category-card__content {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  flex: 1;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.category-card__subtitle {
+  font-size: var(--font-size-xs);
+  color: var(--cat-color-light);
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: var(--space-xs);
+}
+
+.category-card__name {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+  line-height: 1.2;
+}
+
+.category-card__description {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ─── Footer row ─── */
+.category-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  flex-wrap: wrap;
+}
+
+.category-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.category-card__count {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.category-card__price {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--cat-color-light);
+}
+
+/* ─── View Collection Button ─── */
+.category-card__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 10px 20px;
+  border-radius: var(--border-radius-full);
+  border: 2px solid var(--cat-color-border);
+  background: var(--cat-color-subtle);
+  color: var(--cat-color-light);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  font-family: var(--font-primary);
+  cursor: pointer;
+  transition: all var(--transition-bounce);
+  white-space: nowrap;
+}
+
+.category-card__btn:hover {
+  background: var(--cat-color);
+  border-color: var(--cat-color);
+  color: var(--color-white);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px var(--cat-color-shadow);
+}
+
+.category-card__btn svg {
+  transition: transform var(--transition-fast);
+}
+
+.category-card:hover .category-card__btn svg {
+  transform: translateX(4px);
+}
+
+/* ─── Bottom color bar (accent stripe per card color) ─── */
+.category-card__bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--cat-color);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.category-card:hover .category-card__bar {
+  opacity: 1;
+}
+
+/* ─── CTA Bottom ─── */
+.categories__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-top: var(--space-3xl);
+  padding-top: var(--space-2xl);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  text-align: center;
+}
+
+.categories__cta-text {
+  color: var(--text-secondary);
+  font-size: var(--font-size-lg);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+  .categories__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
+@media (max-width: 600px) {
+  .categories__grid {
+    grid-template-columns: 1fr;
+  }
+}
